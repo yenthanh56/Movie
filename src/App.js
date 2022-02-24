@@ -13,13 +13,13 @@ function App() {
 				render={(props) => (
 					<>
 						<Header {...props} />
-						<div className="container">
-							<Routes />
-						</div>
+
+						<Routes />
+
 						<Footer />
 					</>
 				)}
-			/>
+			/>{" "}
 		</BrowserRouter>
 	);
 }
