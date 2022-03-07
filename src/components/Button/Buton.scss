@@ -1,1 +1,64 @@
 @use "../../sass/" as *;
+button {
+    cursor: pointer;
+    font-family: $font-family;
+}
+
+.btn {
+    position: relative;
+    border: 4px solid transparent;
+    border-radius: $border-radius;
+    background-color: $main-color;
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 1.8rem;
+    box-shadow: 0px 0px 7px 8px #ff00004d;
+    transition: box-shadow 0.3 ease;
+    &__txt,
+    &__icon {
+        display: block;
+        transition: transform 0.3s ease;
+    }
+    &:hover {
+        box-shadow: 0px 0px 7px 15px #ff00004d;
+    }
+    &__icon {
+        @include flex(center, center);
+        font-size: 2.5rem;
+        transform: translateY(-100%);
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+    &-animation:hover &__txt {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    &-animation:hover &__icon {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.btn__outline {
+    border: 3px solid white;
+    background-color: transparent;
+    color: $white;
+    box-shadow: unset;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    &:hover {
+        box-shadow: unset;
+        background-color: $white;
+        color: $main-color;
+    }
+}
+
+.btn.small {
+    border-width: 2px;
+    padding: 0.25rem 1.5rem;
+    font-size: 1rem;
+}

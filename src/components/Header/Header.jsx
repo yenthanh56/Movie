@@ -2,10 +2,12 @@ import React, { useRef, useEffect } from "react";
 // import PropTypes from 'prop-types';
 // Header.propTypes = {
 // };
+
 import "./Header.scss";
 import { Link, useLocation } from "react-router-dom";
 
 import logo from "../../assets/tmovie.png";
+import Loading from "../Loading/Loading";
 
 const headerNav = [
 	{

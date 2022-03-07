@@ -1,0 +1,44 @@
+@use "../../sass/" as *;
+.modal {
+    @include flex(center, center);
+    position: fixed;
+    z-index: 150;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($color: $black, $alpha: 0.4);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    &__content {
+        position: relative;
+        padding: 1.5rem;
+        width: 50%;
+        background-color: $body-bg;
+        opacity: 0;
+        transform: translateY(-250px);
+        transition: transform 0.5s ease, opacity 0.6s ease;
+        @include tablet {
+            width: 80%;
+        }
+        &__close {
+            cursor: pointer;
+            position: absolute;
+            top: -18px;
+            right: -10px;
+            font-size: 3rem;
+            &:hover {
+                color: $main-color;
+            }
+        }
+    }
+    &.active &__content {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

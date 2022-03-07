@@ -1,0 +1,13 @@
+@use "../../sass/breakpoint" as *;
+@use "../../sass" as *;
+.movie-list {
+    .swiper-slide {
+        width: 15%;
+        @include tablet {
+            width: 40%;
+        }
+        @include mobile {
+            width: 30%;
+        }
+    }
+}

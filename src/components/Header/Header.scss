@@ -7,10 +7,12 @@
     z-index: 100;
     height: $header-height;
     transition: height 0.4s ease, background-color 0.3s ease;
+    color: $white;
     &.shrink {
         box-shadow: $box-shadow;
         height: $header-shrink-height;
         background-color: $body-bg;
+        color: $white;
     }
     &__wrap {
         @include flex(center, space-between);
@@ -34,7 +36,7 @@
             margin-left: 14px;
         }
         li {
-            margin-right: 12px;
+            //margin-right: 12px;
             font-size: 1.5rem;
             font-weight: 600;
             position: relative;
@@ -45,7 +47,7 @@
                 background-color: $main-color;
                 bottom: 0;
                 width: 0;
-                transition: width 0.5s ease;
+                transition: width 0.2s ease;
                 left: 50%;
                 transform: translateX(-50%);
             }
