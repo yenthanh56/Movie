@@ -7,9 +7,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Routes from "./Routes/Routes";
 import Header from "./components/Header/Header";
 // import Footer from "./components/Footer/Footer";
-
-// const Header = lazy(() => import("./components/Header/Header"));
-// const Routes = lazy(() => import("./Routes/Routes"));
 const Footer = lazy(() => import("./components/Footer/Footer"));
 
 function App() {
@@ -22,7 +19,6 @@ function App() {
 						<Suspense
 							fallback={<div style={{ display: "none" }}> </div>}
 						>
-							{" "}
 							<Footer />
 						</Suspense>{" "}
 					</>

@@ -1,0 +1,10 @@
+@use "../../sass/variables" as *;
+.input-search {
+    border: 0;
+    color: $txt-second-color;
+    background-color: $black;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-family: $font-family;
+    border-radius: $border-radius;
+}

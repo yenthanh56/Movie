@@ -1,13 +1,9 @@
 import React, { useRef, useEffect } from "react";
-// import PropTypes from 'prop-types';
-// Header.propTypes = {
-// };
 
 import "./Header.scss";
 import { Link, useLocation } from "react-router-dom";
 
 import logo from "../../assets/tmovie.png";
-import Loading from "../Loading/Loading";
 
 const headerNav = [
 	{
@@ -15,16 +11,17 @@ const headerNav = [
 		path: "/",
 	},
 	{
-		display: "Movie",
-		path: "/moive",
+		display: "Movies",
+		path: "/movie",
 	},
+
 	{
-		display: "Tv",
+		display: "TV Series",
 		path: "/tv",
 	},
 ];
 
-function Header(props) {
+function Header() {
 	const { pathname } = useLocation();
 	const active = headerNav.findIndex((e) => e.path === pathname);
 	const headerRef = useRef(null);

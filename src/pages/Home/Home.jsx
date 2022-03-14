@@ -7,15 +7,17 @@ import HeroSlider from "../../components/HeroSlider/HeroSlider";
 import { OutlineButton } from "../../components/Button/Button";
 import MovieList from "../../components/MovieList/MovieList";
 import { category, movieType, tvType } from "../../api/tmdbApi";
+import Helmet from "../../components/Helmet/Helmet";
 
-// const MovieList = lazy(() => import("../../components/MovieList/MovieList"));
-// const HeroSlider = lazy(() => import("../../components/HeroSlider/HeroSlider"));
 function Home(props) {
 	return (
-		<>
+		<Helmet title="Trang chủ">
 			<HeroSlider />
 			<div className="container">
-				<div className="section mb-3">
+				<div
+					className="section mb-3"
+					style={{ zIndex: "100", position: "relative" }}
+				>
 					<div className="section__header mb-2">
 						<h2 className="title">Top Movie Popular</h2>
 						<OutlineButton className="small">
@@ -65,7 +67,7 @@ function Home(props) {
 					<MovieList category={category.tv} type={tvType.popular} />
 				</div>
 			</div>
-		</>
+		</Helmet>
 	);
 }
 

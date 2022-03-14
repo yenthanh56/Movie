@@ -1,1 +1,126 @@
 @use "../../sass/" as *;
+.banner {
+    position: relative;
+    height: 70vh;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        @include overlay();
+    }
+    &::after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
+    }
+}
+
+.movie-content {
+    position: relative;
+    @include flex(flex-start, flex-start);
+    max-width: 1260px;
+    margin: -200px auto 0;
+    &__poster {
+        flex: 1;
+        @include mobile {
+            display: none;
+        }
+        &__img {
+            position: relative;
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 165%;
+            border-radius: $border-radius;
+        }
+    }
+    &__info {
+        width: 70%;
+        position: relative;
+        padding-left: 2rem;
+        @include mobile {
+            width: 100%;
+            padding-left: 0;
+        }
+        &>* {
+            margin-bottom: 2rem;
+        }
+        .title {
+            font-size: 4rem;
+            line-height: 1;
+        }
+        .genres>*~* {
+            margin-left: 1rem;
+        }
+        .genres {
+            &__item {
+                padding: 0.5rem 1.5rem;
+                border: 2px solid white;
+                border-radius: 30px;
+                &:hover {
+                    background-color: $white;
+                    color: $txt-second-color;
+                    cursor: default;
+                }
+            }
+        }
+        .overview {
+            font-size: 1.3rem;
+        }
+        .cast {
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+.casts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+    @include mobile {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    }
+    &__item {
+        &__img {
+            padding-top: 160px;
+            background-size: cover;
+            @include mobile {
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding-top: 80px;
+            }
+            margin: 3rem 0;
+        }
+        &__name {
+            font-size: 1rem;
+        }
+    }
+}
+
+.video {
+    text-align: center;
+    &__title {
+        margin: 2rem 0 3rem;
+    }
+    iframe {
+        max-height: 600px;
+        @include tablet {
+            width: 100%;
+        }
+        @include mobile {
+            max-height: 300px;
+        }
+    }
+}

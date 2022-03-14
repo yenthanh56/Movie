@@ -14,7 +14,6 @@ function Modal(props) {
 	const modalRef = useRef(null);
 	const onClose = () => {
 		modalRef.current.classList.remove("active");
-		modalRef.current.setAttribute("src", "");
 		if (props.onClose) props.onClose();
 	};
 	useEffect(() => {

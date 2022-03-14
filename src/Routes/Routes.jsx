@@ -10,7 +10,7 @@ const Home = lazy(() => import("../pages/Home/Home"));
 const Catalog = lazy(() => import("../pages/Catalog/Catalog"));
 const Detail = lazy(() => import("../pages/Detail/Detail"));
 
-function Router() {
+function Routes() {
 	return (
 		<Suspense fallback={<Loading />}>
 			<Switch>
@@ -23,4 +23,4 @@ function Router() {
 	);
 }
 
-export default Router;
+export default Routes;

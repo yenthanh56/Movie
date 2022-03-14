@@ -2,6 +2,13 @@
 .hero-slider {
     margin-bottom: 3rem;
     min-height: 100vh;
+    @include tablet {
+        min-height: auto;
+        margin-bottom: -5rem;
+    }
+    @include mobile {
+        margin-bottom: -12rem;
+    }
     &__item {
         position: relative;
         // min-height: 100vh;
@@ -26,17 +33,21 @@
             height: 100px;
             bottom: 0;
             left: 0;
-            background-color: linear-gradient( to top, $body-bg, rgba($black, 0));
+            background-image: linear-gradient( to top, $body-bg, rgba($black, 0));
         }
         &__content {
             @include flex(center, center);
             position: relative;
+            z-index: 100;
             @include tablet {
                 @include flex(center, unset);
             }
             &__info {
                 width: 55%;
                 padding: 0 3rem;
+                @include mobile {
+                    padding: 0;
+                }
                 position: relative;
                 @include tablet {
                     width: 100%;

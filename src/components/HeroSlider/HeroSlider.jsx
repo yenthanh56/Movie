@@ -16,7 +16,7 @@ function HeroSlider(props) {
 	const [movieItems, setMovieItems] = useState([]);
 
 	useEffect(() => {
-		const clearApi = setInterval(() => {
+		const clearApi = setTimeout(() => {
 			const fetchApi = async () => {
 				try {
 					const params = { page: 1 };
@@ -30,8 +30,8 @@ function HeroSlider(props) {
 				}
 			};
 			fetchApi();
-			return () => clearInterval(clearApi);
 		}, 200);
+		return () => clearTimeout(clearApi);
 	}, []);
 
 	SwiperCore.use([Autoplay]);
@@ -78,7 +78,7 @@ const HeroSliderItem = (props) => {
 				.querySelector(".modal__content> iframe")
 				.setAttribute("src", videoSrc);
 		} else {
-			modal.querySelector(".modal__content").innerHTML = "no trailer";
+			modal.querySelector(".modal__content").innerHTML = "No Trailer";
 		}
 		modal.classList.toggle("active");
 	};
@@ -116,16 +116,19 @@ const HeroSliderItem = (props) => {
 const TrailerMovie = (props) => {
 	const { item } = props;
 	const contentModal = useRef(null);
-	const onClose = () => contentModal.current.setAttribute("src", "");
+
+	const onClose = () => {
+		contentModal.current.setAttribute("src", "");
+	};
 
 	return (
-		<Modal active={false} id={`modal_${item.id}`} onClose={onClose}>
+		<Modal active={false} id={`modal_${item.id}`}>
 			<ModalContent onClose={onClose}>
 				<iframe
 					ref={contentModal}
 					width="100%"
 					height="500px"
-					title="tralier"
+					title="trailer"
 				></iframe>
 			</ModalContent>
 		</Modal>

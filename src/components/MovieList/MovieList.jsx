@@ -41,7 +41,7 @@ function MovieList(props) {
 		};
 
 		getApiMoviePopular();
-	}, []);
+	}, [props.category, props.id, props.type]);
 
 	return (
 		<div className="movie-list">
